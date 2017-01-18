@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17239F671E301209000A662A /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17239F661E301209000A662A /* HelperClass.swift */; };
 		1735B0B11DA6087800A06BD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735B0B01DA6087800A06BD4 /* AppDelegate.swift */; };
 		1735B0B61DA6087800A06BD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1735B0B41DA6087800A06BD4 /* Main.storyboard */; };
 		1735B0B81DA6087800A06BD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1735B0B71DA6087800A06BD4 /* Assets.xcassets */; };
@@ -21,7 +22,6 @@
 		17D24E311DACB084002780DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E281DACB084002780DA /* ViewController.swift */; };
 		17D24E321DACB084002780DA /* VLCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E291DACB084002780DA /* VLCViewController.swift */; };
 		17D24E331DACB084002780DA /* PlayerOverlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E2D1DACB084002780DA /* PlayerOverlayVC.swift */; };
-		17D24E3B1DAD003D002780DA /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E3A1DAD003D002780DA /* HelperClass.swift */; };
 		17D24E471DAD4629002780DA /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E461DAD4629002780DA /* CommonMethods.swift */; };
 		E02EC1877467DA8CBD263C0C /* Pods_DemoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547FEA16971350BA4FA2E155 /* Pods_DemoPlayer.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17239F661E301209000A662A /* HelperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelperClass.swift; path = DemoPlayer/Controllers/HelperClass.swift; sourceTree = SOURCE_ROOT; };
 		1735B0AD1DA6087800A06BD4 /* DemoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1735B0B01DA6087800A06BD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1735B0B51DA6087800A06BD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		17D24E291DACB084002780DA /* VLCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLCViewController.swift; sourceTree = "<group>"; };
 		17D24E2D1DACB084002780DA /* PlayerOverlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerOverlayVC.swift; sourceTree = "<group>"; };
 		17D24E361DACB1BA002780DA /* DemoPlayer-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DemoPlayer-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		17D24E3A1DAD003D002780DA /* HelperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelperClass.swift; path = ../Controllers/HelperClass.swift; sourceTree = "<group>"; };
 		17D24E461DAD4629002780DA /* CommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonMethods.swift; path = Controllers/CommonMethods.swift; sourceTree = "<group>"; };
 		547FEA16971350BA4FA2E155 /* Pods_DemoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86872C1B5FB7426991F4DF2 /* Pods-DemoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoPlayer/Pods-DemoPlayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		17D24E491DAD6552002780DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				17D24E3A1DAD003D002780DA /* HelperClass.swift */,
+				17239F661E301209000A662A /* HelperClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -416,12 +416,12 @@
 				17D24E311DACB084002780DA /* ViewController.swift in Sources */,
 				1735B0B11DA6087800A06BD4 /* AppDelegate.swift in Sources */,
 				17D24E321DACB084002780DA /* VLCViewController.swift in Sources */,
+				17239F671E301209000A662A /* HelperClass.swift in Sources */,
 				17D24E471DAD4629002780DA /* CommonMethods.swift in Sources */,
 				17D24E331DACB084002780DA /* PlayerOverlayVC.swift in Sources */,
 				17D24E2F1DACB084002780DA /* ChoseTableViewController.swift in Sources */,
 				17D24E2E1DACB084002780DA /* AVViewController.swift in Sources */,
 				17D24E301DACB084002780DA /* MediaViewController.swift in Sources */,
-				17D24E3B1DAD003D002780DA /* HelperClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

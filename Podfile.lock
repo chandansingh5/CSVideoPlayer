@@ -1,12 +1,3 @@
-PODS:
-  - MobileVLCKit-unstable (3.0.0a23)
-
-DEPENDENCIES:
-  - MobileVLCKit-unstable (= 3.0.0a23)
-
-SPEC CHECKSUMS:
-  MobileVLCKit-unstable: 0ce615bf89292c09f71cf351ed08819aa2e6da3f
-
-PODFILE CHECKSUM: 52c72fe29e87d88552bb777d18fe6fedefa6b4cd
+PODFILE CHECKSUM: 1aabb39f7d2c2fe8125aa409ebb053878687c612
 
 COCOAPODS: 1.1.1

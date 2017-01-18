@@ -13,30 +13,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E7FB5A733C334DDAF84EC9E911480AF /* VLCMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCMedia.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCMedia.h"; sourceTree = "<group>"; };
 		23B91DED66234778188D26A324B56260 /* Pods-DemoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DemoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		322884CA001CAD0A3256829927C3C02D /* Pods-DemoPlayer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DemoPlayer-acknowledgements.plist"; sourceTree = "<group>"; };
-		3A6A5906021959AC578662B90CCB8DE8 /* VLCMediaDiscoverer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCMediaDiscoverer.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCMediaDiscoverer.h"; sourceTree = "<group>"; };
 		4D7B65D149B4F712F3F6A3139FE412C4 /* Pods-DemoPlayer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DemoPlayer-frameworks.sh"; sourceTree = "<group>"; };
 		544E80B85BCAA3F83DCCA412763ECC35 /* Pods-DemoPlayer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-DemoPlayer.modulemap"; sourceTree = "<group>"; };
 		63121FE349BEEA0E3D132A29B6478C27 /* Pods-DemoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DemoPlayer.release.xcconfig"; sourceTree = "<group>"; };
-		6B1F8E9D079DC3D18CDA21B37B1102C3 /* VLCAudio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCAudio.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCAudio.h"; sourceTree = "<group>"; };
-		6D4A6FF685EC01CA4C409ABC1A72F0DC /* MobileVLCKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MobileVLCKit.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/MobileVLCKit.h"; sourceTree = "<group>"; };
-		76D02F7E1217CAC91D9AC944929FBAC3 /* VLCDialogProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCDialogProvider.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCDialogProvider.h"; sourceTree = "<group>"; };
-		77ECE3AD2C0911B28A1A3F64D958A195 /* VLCLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCLibrary.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCLibrary.h"; sourceTree = "<group>"; };
-		81923E817008BF857758A2D206938D5A /* VLCMediaThumbnailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCMediaThumbnailer.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCMediaThumbnailer.h"; sourceTree = "<group>"; };
 		8CDF0282934856C218B25E40B8646239 /* Pods-DemoPlayer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DemoPlayer-resources.sh"; sourceTree = "<group>"; };
-		8D49CC88C287864A4E4FC2D8EF4DE4FA /* VLCMediaListPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCMediaListPlayer.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCMediaListPlayer.h"; sourceTree = "<group>"; };
-		9276D88736BF093488A7A8D6F6F674C8 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileVLCKit.framework; path = "MobileVLCKit-binary/MobileVLCKit.framework"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B1D2FF1C437E7AC2E421E5019EEDB75D /* Pods-DemoPlayer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DemoPlayer-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BD73B17C0E237B6F283857A7E058D0CA /* Pods-DemoPlayer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DemoPlayer-umbrella.h"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D9668364F0B3BAC13F0D7A1FE8012371 /* Pods_DemoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DemoPlayer.framework; path = "Pods-DemoPlayer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25707CB04CBA6D8FD5A87D7BAA7266D /* Pods-DemoPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DemoPlayer-dummy.m"; sourceTree = "<group>"; };
-		E36B40EBCB9AF4EC036ED32CB00F35E8 /* VLCMediaPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCMediaPlayer.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCMediaPlayer.h"; sourceTree = "<group>"; };
-		E78E8C7D8A67D7543DFEB0ECC62274F6 /* VLCMediaList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCMediaList.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCMediaList.h"; sourceTree = "<group>"; };
-		F60418C506F79E736EE45F9E0812B587 /* VLCTime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VLCTime.h; path = "MobileVLCKit-binary/MobileVLCKit.framework/Headers/VLCTime.h"; sourceTree = "<group>"; };
 		FD1604F51F28E60775AA30564300AA22 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,26 +87,9 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				990E527C26F8E7D2F4A9F37691150E0B /* Pods */,
 				20C8158E5A7CD13ED0B062CD69073E5D /* Products */,
 				172D42BD4B4D45F6FE5DD0C5801CE888 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		990E527C26F8E7D2F4A9F37691150E0B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EE46D837EAE55F0CB64A4EC6C77FE79C /* MobileVLCKit-unstable */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		9CF2EBE24E1E542BE8317FC5F524A7EF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9276D88736BF093488A7A8D6F6F674C8 /* MobileVLCKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -127,26 +98,6 @@
 				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EE46D837EAE55F0CB64A4EC6C77FE79C /* MobileVLCKit-unstable */ = {
-			isa = PBXGroup;
-			children = (
-				6D4A6FF685EC01CA4C409ABC1A72F0DC /* MobileVLCKit.h */,
-				6B1F8E9D079DC3D18CDA21B37B1102C3 /* VLCAudio.h */,
-				76D02F7E1217CAC91D9AC944929FBAC3 /* VLCDialogProvider.h */,
-				77ECE3AD2C0911B28A1A3F64D958A195 /* VLCLibrary.h */,
-				1E7FB5A733C334DDAF84EC9E911480AF /* VLCMedia.h */,
-				3A6A5906021959AC578662B90CCB8DE8 /* VLCMediaDiscoverer.h */,
-				E78E8C7D8A67D7543DFEB0ECC62274F6 /* VLCMediaList.h */,
-				8D49CC88C287864A4E4FC2D8EF4DE4FA /* VLCMediaListPlayer.h */,
-				E36B40EBCB9AF4EC036ED32CB00F35E8 /* VLCMediaPlayer.h */,
-				81923E817008BF857758A2D206938D5A /* VLCMediaThumbnailer.h */,
-				F60418C506F79E736EE45F9E0812B587 /* VLCTime.h */,
-				9CF2EBE24E1E542BE8317FC5F524A7EF /* Frameworks */,
-			);
-			name = "MobileVLCKit-unstable";
-			path = "MobileVLCKit-unstable";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
