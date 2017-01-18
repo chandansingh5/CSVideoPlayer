@@ -12,8 +12,8 @@ import AVKit
 
 protocol PlayerOverlayVCDelegate{
     
-    func didVideoSliderSliderValueChanged(totalDuration :Double!)
-    func didPlayButtonSelected(isplayorPouse : Bool!)
+    func didVideoSliderSliderValueChanged(_ totalDuration :Double!)
+    func didPlayButtonSelected(_ isplayorPouse : Bool!)
 }
 
 class PlayerOverlayVC: UIViewController {
@@ -30,7 +30,7 @@ class PlayerOverlayVC: UIViewController {
     @IBOutlet weak var remainingDurationLabel: UILabel!
     @IBOutlet weak var currentDurationlLabel: UILabel!
     
-    var  playBarAutoideInterval : NSTimeInterval!
+    var  playBarAutoideInterval : TimeInterval!
     var  isVideoSliderMoving: Bool! = true
     var  isVideoSliderComplete: Bool! = true
     var  volume:MPVolumeView!
@@ -39,7 +39,7 @@ class PlayerOverlayVC: UIViewController {
 
     var isFullScreen:Bool {
         get {
-            return UIApplication.sharedApplication().statusBarOrientation.isLandscape
+            return UIApplication.shared.statusBarOrientation.isLandscape
         }
     }
     
@@ -52,14 +52,14 @@ class PlayerOverlayVC: UIViewController {
         super.viewDidLoad()
         
         isVideoSliderMoving = true
-        self.volumeSlider.hidden = true
-        self.playBigButton.hidden = true
+        self.volumeSlider.isHidden = true
+        self.playBigButton.isHidden = true
 
         self.activityIndicator.startAnimating()
         self.view.layoutIfNeeded()
         
         /* VloumeSlider transform into 90 degree */
-        self.volumeSlider.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+        self.volumeSlider.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
         self.volumeSlider.value = AVAudioSession.sharedInstance().outputVolume
       
         /* Tap gesture */
@@ -73,64 +73,64 @@ class PlayerOverlayVC: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func btnVolumeButtonSelected(sender: AnyObject) {
-        if volumeSlider.hidden {
-            UIView.animateWithDuration(0.25, animations: {() -> Void in
-                self.volumeSlider.hidden = false // Show Volume Slider
+    @IBAction func btnVolumeButtonSelected(_ sender: AnyObject) {
+        if volumeSlider.isHidden {
+            UIView.animate(withDuration: 0.25, animations: {() -> Void in
+                self.volumeSlider.isHidden = false // Show Volume Slider
             })
         }
         else {
-            UIView.animateWithDuration(0.25, animations: {() -> Void in
-                self.volumeSlider.hidden = true // Hide Volume Slider
+            UIView.animate(withDuration: 0.25, animations: {() -> Void in
+                self.volumeSlider.isHidden = true // Hide Volume Slider
             })
         }
         self.autoHidePlayerBar()
     }
     
-    @IBAction func btnFullscreenButtonSelected(sender: AnyObject) {
+    @IBAction func btnFullscreenButtonSelected(_ sender: AnyObject) {
        
         if isFullScreen {
             
             /* Change Portrait Orientaion */
-            UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
-            UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
-            UIApplication.sharedApplication().setStatusBarOrientation(UIInterfaceOrientation.Portrait, animated: false)
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.fade)
+            UIApplication.shared.setStatusBarOrientation(UIInterfaceOrientation.portrait, animated: false)
         } else {
             
             /* Change LandscapeRight Orientaion */
 
-            UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeRight.rawValue, forKey: "orientation")
-            UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
-            UIApplication.sharedApplication().setStatusBarOrientation(UIInterfaceOrientation.LandscapeRight, animated: false)
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+            UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.fade)
+            UIApplication.shared.setStatusBarOrientation(UIInterfaceOrientation.landscapeRight, animated: false)
         }
     }
     
-    @IBAction func btnRestartButtonSelected(sender: AnyObject) {
+    @IBAction func btnRestartButtonSelected(_ sender: AnyObject) {
         
         /* Reset Video With Update OverlayView */
         isVideoSliderMoving = false
         isVideoSliderComplete = true
         self.deleget.didVideoSliderSliderValueChanged(0.1)
-        UIView.animateWithDuration(0.25, animations: {
+        UIView.animate(withDuration: 0.25, animations: {
             /* Hide PlayBigbutton On ReStrat */
-            self.playBigButton.hidden = true
+            self.playBigButton.isHidden = true
         })
         self.currentDurationlLabel.text = self.remainingDurationLabel.text
         self.remainingDurationLabel.text = NSString(format: "%.2f",00.00) as String
         self.videoSlider.value = 0.0
-        self.btnPlayButtonSelected(false)
+        self.btnPlayButtonSelected(false as AnyObject)
     }
     
-    @IBAction func btnPlayButtonSelected(sender: AnyObject) {
+    @IBAction func btnPlayButtonSelected(_ sender: AnyObject) {
         
         if (isVideoSliderMoving == true && isVideoSliderComplete == true ) {
             /* Pause */
-            self.playButton.selected = true
+            self.playButton.isSelected = true
             isVideoSliderMoving = false
             deleget.didPlayButtonSelected(isVideoSliderMoving)
         }else if (isVideoSliderMoving == false && isVideoSliderComplete == true ){
             /* Play */
-            self.playButton.selected = false
+            self.playButton.isSelected = false
             isVideoSliderMoving = true
             deleget.didPlayButtonSelected(isVideoSliderMoving)
         }
@@ -138,11 +138,11 @@ class PlayerOverlayVC: UIViewController {
     }
     
     // MARK: - Stop VideoSlider
-    @IBAction func didVideoSliderTouchDown(sender: AnyObject) {
+    @IBAction func didVideoSliderTouchDown(_ sender: AnyObject) {
         self.isVideoSliderMoving = false;
     }
    
-    @IBAction func didVideoSliderTouchUp(sender: AnyObject) {
+    @IBAction func didVideoSliderTouchUp(_ sender: AnyObject) {
         if (isVideoSliderMoving == false) {
             isVideoSliderComplete = true
             /** The current duration of the VideoSlider */
@@ -154,10 +154,10 @@ class PlayerOverlayVC: UIViewController {
     }
     
     // Mark: - VolumeSlider
-    @IBAction func didVolumeSliderValueChanged(sender: AnyObject) {
-        self.playBigButton.hidden = true
+    @IBAction func didVolumeSliderValueChanged(_ sender: AnyObject) {
+        self.playBigButton.isHidden = true
         self.mpSlider.value = (sender as! UISlider).value
-        self.mpSlider.sendActionsForControlEvents(.TouchUpInside)
+        self.mpSlider.sendActions(for: .touchUpInside)
         self.autoHidePlayerBar()
     }
     
@@ -176,7 +176,7 @@ class PlayerOverlayVC: UIViewController {
     }
     
     // Mark: - TapOnVideoSlider
-    func didTapedSwitch(totalDuration :Float!,currentDuration:Float!){
+    func didTapedSwitch(_ totalDuration :Float!,currentDuration:Float!){
         
         if isVideoSliderMoving == true {
             var remaingDruation = totalDuration - currentDuration
@@ -184,7 +184,7 @@ class PlayerOverlayVC: UIViewController {
                 /* show Restart Button  After complete Slider */
                 isVideoSliderMoving = false
                 isVideoSliderComplete = false
-                playBigButton.hidden = false
+                playBigButton.isHidden = false
                 remaingDruation = 00.00
             }
             self.currentDurationlLabel.text = NSString(format: "%.2f",currentDuration) as String
@@ -192,7 +192,7 @@ class PlayerOverlayVC: UIViewController {
             self.videoSlider.maximumValue = totalDuration
             self.videoSlider.value = currentDuration
             self.activityIndicator.stopAnimating()
-            self.activityIndicator.hidden = true
+            self.activityIndicator.isHidden = true
         }
     }
     
@@ -202,7 +202,7 @@ class PlayerOverlayVC: UIViewController {
         let  audioSession = AVAudioSession.sharedInstance()
         do
         {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .AllowBluetooth)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayback, with: .allowBluetooth)
             try audioSession.setActive(true)
         }
         catch let e
@@ -213,17 +213,17 @@ class PlayerOverlayVC: UIViewController {
     
     // Mark: - Add\Remove PerformSelector
     func autoHidePlayerBar(){
-        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(self.hidePlayerBar), object: nil) // Cancel privious Request
-        self.performSelector(#selector(self.hidePlayerBar), withObject: nil, afterDelay: playBarAutoideInterval!) // Add New Request
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.hidePlayerBar), object: nil) // Cancel privious Request
+        self.perform(#selector(self.hidePlayerBar), with: nil, afterDelay: playBarAutoideInterval!) // Add New Request
     }
     
    
     // Mark: - Hide PlayBarView
     func hidePlayerBar() {
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.playerBarViewHightContraint.constant = 0
-            self.volumeSlider.hidden = true
-            self.playerBarView.hidden = true
+            self.volumeSlider.isHidden = true
+            self.playerBarView.isHidden = true
 
         })
     }
@@ -231,15 +231,15 @@ class PlayerOverlayVC: UIViewController {
     // Mark: - Show PlayBarView
     func showPlayerBar() {
        // self.playBigButton.hidden = false
-        self.playerBarView.hidden = false
-        UIView.animateWithDuration(0.5, animations: {
+        self.playerBarView.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
             self.playerBarViewHightContraint.constant = 50
         })
     }
     
     // Mark: - TapGesture
-    func didTapGesture(sender: AnyObject) {
-        if playerBarView.hidden {
+    func didTapGesture(_ sender: AnyObject) {
+        if playerBarView.isHidden {
             self.showPlayerBar()
         }else{
             self.hidePlayerBar()

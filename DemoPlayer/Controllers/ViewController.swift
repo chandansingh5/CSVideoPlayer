@@ -25,34 +25,34 @@ class ViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return playerListArray.count
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let playList = playerListArray[indexPath.row]
         cell.textLabel?.text = playList.name
         return cell
     }
     
     // MARK: - Table view deleget
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        self.performSegueWithIdentifier("choseController", sender:indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        self.performSegue(withIdentifier: "choseController", sender:indexPath)
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Pass the selected object to the new view controller
         if segue.identifier == "choseController"{
-            let indexPath = sender as! NSIndexPath
+            let indexPath = sender as! IndexPath
             let playList = playerListArray[indexPath.row]
-            let  targetController = segue.destinationViewController as! ChoseTableViewController
+            let  targetController = segue.destination as! ChoseTableViewController
             targetController.selectPlayer = playList.identifier
         }
     }

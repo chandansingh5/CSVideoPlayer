@@ -16,14 +16,14 @@ class AVViewController: UIViewController   {
     var  overlayVC : PlayerOverlayVC!
     let  avPlayer :AVPlayer = AVPlayer()
     var  avPlayerLayer: AVPlayerLayer!
-    var  url : NSURL!
+    var  url : URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAVplayer() //initialization AVPlayer
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.addOverlayView()
         avPlayer.play() // Start the playback
@@ -34,7 +34,7 @@ class AVViewController: UIViewController   {
         avPlayerLayer.frame = view.bounds // Layout subviews manually
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         self.avPlayer.pause() //Pause  the playback
         self.overlayVC.removeFromParentViewController() //Remove overlay
     }
@@ -48,11 +48,11 @@ class AVViewController: UIViewController   {
     func setupAVplayer()  {
         
         avPlayerLayer = AVPlayerLayer(player: avPlayer)
-        view.layer.insertSublayer(avPlayerLayer, atIndex: 0)
-        let playerItem = AVPlayerItem(URL:self.url)
-        avPlayer.replaceCurrentItemWithPlayerItem(playerItem)
+        view.layer.insertSublayer(avPlayerLayer, at: 0)
+        let playerItem = AVPlayerItem(url:self.url)
+        avPlayer.replaceCurrentItem(with: playerItem)
         /* Observer for playing video */
-        avPlayer.addPeriodicTimeObserverForInterval(CMTimeMake(1, 60), queue: dispatch_get_main_queue()) {
+        avPlayer.addPeriodicTimeObserver(forInterval: CMTimeMake(1, 60), queue: DispatchQueue.main) {
             [unowned self] time in
             self.updateProgressBar()
         }
@@ -60,11 +60,11 @@ class AVViewController: UIViewController   {
     
     // MARK: OverlayVC initialization
     func addOverlayView() {
-        overlayVC = self.storyboard?.instantiateViewControllerWithIdentifier("AVPlayerOverlayVC") as! PlayerOverlayVC
+        overlayVC = self.storyboard?.instantiateViewController(withIdentifier: "AVPlayerOverlayVC") as! PlayerOverlayVC
         self.addChildViewController(overlayVC)
         self.view.addSubview(overlayVC.view)
         overlayVC.deleget = self
-        overlayVC.didMoveToParentViewController(self)
+        overlayVC.didMove(toParentViewController: self)
     }
     
     // MARK: Update Vedio Sldier on OverlayVC View
@@ -72,7 +72,9 @@ class AVViewController: UIViewController   {
         
         /** The current state of the video player */
         let duration = CMTimeGetSeconds(avPlayer.currentItem!.duration)
-        if  !isnan(duration) {
+        let myIntValue:Int = Int(duration)
+        
+        if  (myIntValue != 0) {
             let totalDuration = Float(duration)
             let  currentDuration = Float(CMTimeGetSeconds(avPlayer.currentTime()))
             overlayVC.didTapedSwitch(totalDuration, currentDuration: currentDuration)
@@ -83,17 +85,17 @@ class AVViewController: UIViewController   {
 // MARK: - PlayerOverlayVCDelegate
 extension AVViewController : PlayerOverlayVCDelegate{
     
-    func didVideoSliderSliderValueChanged(totalDuration :Double!){
+    func didVideoSliderSliderValueChanged(_ totalDuration :Double!){
         
         let timeStart = totalDuration
         let timeScale = avPlayer.currentItem!.asset.duration.timescale
-        let seektime = CMTimeMakeWithSeconds(timeStart, timeScale)
+        let seektime = CMTimeMakeWithSeconds(timeStart!, timeScale)
         if CMTIME_IS_VALID(seektime) {
-            avPlayer.seekToTime(seektime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+            avPlayer.seek(to: seektime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
         }
     }
     
-    func didPlayButtonSelected(isplayorPouse : Bool!){
+    func didPlayButtonSelected(_ isplayorPouse : Bool!){
         if (isplayorPouse == true) {
             avPlayer.play() // Start the playback
         }
