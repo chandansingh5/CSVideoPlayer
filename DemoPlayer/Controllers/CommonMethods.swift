@@ -11,8 +11,8 @@ import Foundation
 
 class CommonMethods {
     
-    class func separatedByString(seprateStr:String ,fulname:String) -> (String,String){
-        let fullNameArr : [String] = fulname.componentsSeparatedByString(seprateStr)
+    class func separatedByString(_ seprateStr:String ,fulname:String) -> (String,String){
+        let fullNameArr : [String] = fulname.components(separatedBy: seprateStr)
         guard fullNameArr.count > 0 else {
             return("","")
         }

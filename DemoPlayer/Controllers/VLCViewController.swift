@@ -13,25 +13,25 @@ class VLCViewController: UIViewController,VLCMediaPlayerDelegate {
     var vlcMediaPlayer = VLCMediaPlayer()
     var overlayVC : PlayerOverlayVC!
     var movieView: UIView!
-    var url : NSURL!
+    var url : URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addMovieView()
         self.setupVLCPalyer()
         /* Register for start PlayerTime video notification */
-       NSNotificationCenter.defaultCenter().addObserverForName(VLCMediaPlayerTimeChanged, object: nil, queue: NSOperationQueue.mainQueue()) { _ in
+       NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: VLCMediaPlayerTimeChanged), object: nil, queue: OperationQueue.main) { _ in
             self .timechangedLoadStateDidChange()
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.addOverlayView()
         vlcMediaPlayer.play() // Start the playback
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         vlcMediaPlayer.stop() // Stop the playback
         overlayVC.removeFromParentViewController() // Remove overlay
     }
@@ -64,25 +64,25 @@ class VLCViewController: UIViewController,VLCMediaPlayerDelegate {
     
     // MARK: - PlayerOverlayVC initialization
     func addOverlayView() {
-        overlayVC = self.storyboard?.instantiateViewControllerWithIdentifier("AVPlayerOverlayVC") as! PlayerOverlayVC
+        overlayVC = self.storyboard?.instantiateViewController(withIdentifier: "AVPlayerOverlayVC") as! PlayerOverlayVC
         self.addChildViewController(overlayVC)
         self.view.addSubview(overlayVC.view)
         overlayVC.deleget = self
-        overlayVC.didMoveToParentViewController(self)
+        overlayVC.didMove(toParentViewController: self)
     }
     
     // MARK: - MovieeView initializatio
     func addMovieView()  {
         self.movieView = UIView()
-        self.movieView.backgroundColor = UIColor.grayColor()
-        self.movieView.frame = UIScreen.screens()[0].bounds
+        self.movieView.backgroundColor = UIColor.gray
+        self.movieView.frame = UIScreen.screens[0].bounds
     }
     
     // MARK: - VlcMediaPlayer initializatio
     func setupVLCPalyer()  {
         vlcMediaPlayer.delegate = self
         vlcMediaPlayer.drawable = self.movieView
-        vlcMediaPlayer.media = VLCMedia(URL:self.url)
+        vlcMediaPlayer.media = VLCMedia(url:self.url)
         self.view.addSubview(self.movieView)
     }
 }
@@ -91,7 +91,7 @@ class VLCViewController: UIViewController,VLCMediaPlayerDelegate {
 
 extension VLCViewController :PlayerOverlayVCDelegate {
     
-    func didPlayButtonSelected(isplayorPouse : Bool!){
+    func didPlayButtonSelected(_ isplayorPouse : Bool!){
         if (vlcMediaPlayer.time.intValue != 0)  {
             if isplayorPouse == true {
                 vlcMediaPlayer.play() // Start the playback
@@ -103,7 +103,7 @@ extension VLCViewController :PlayerOverlayVCDelegate {
     }
     
     
-    func didVideoSliderSliderValueChanged(currrentDuration :Double!){
+    func didVideoSliderSliderValueChanged(_ currrentDuration :Double!){
         
         let range = Float(self.vlcMediaPlayer.media.length.value)/100
         let perCent = (Float(currrentDuration) / range)
