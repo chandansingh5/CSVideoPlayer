@@ -25,12 +25,9 @@ A completely customizable video player that support `MobileVLCKit`,`AVPlayer` an
 
 To run the Demo project; clone the repo, and run pod install from the DemoPlayer directory first. After installed pod, open`DemoPlayer.xcworkspace`  in Xcode to run DemoPlayer Application.
 
-# Images 
+# Animated Demo
 
-
-![simulator screen shot 17-jan-2017 6 41 34 pm](https://cloud.githubusercontent.com/assets/12164119/22026450/d54d808c-dcf6-11e6-8227-ac5fc572f3d7.png)
-![simulator screen shot 17-jan-2017 8 46 24 pm](https://cloud.githubusercontent.com/assets/12164119/22026452/d956e664-dcf6-11e6-96dd-c8fce743385e.png)
-![simulator screen shot 17-jan-2017 7 08 20 pm](https://cloud.githubusercontent.com/assets/12164119/22026460/dc7bb1a8-dcf6-11e6-8f2d-e26b6275087a.png)
+<img border="0" alt="W3Schools" src="https://cloud.githubusercontent.com/assets/12164119/23505874/7dc4e5f2-ff6b-11e6-9475-95b243a23128.gif" width="320" height="480">
 
 
 
