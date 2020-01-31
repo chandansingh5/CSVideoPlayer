@@ -1,4 +1,4 @@
-# SWiftCSVideoPlayer
+# CSVideoPlayer
 
 
 A completely customizable video player that support `MobileVLCKit`,`AVPlayer` and `Media Player`.It is in  pure swift 3.
