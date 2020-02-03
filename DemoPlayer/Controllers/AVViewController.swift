@@ -36,7 +36,7 @@ class AVViewController: UIViewController   {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.avPlayer.pause() //Pause  the playback
-        self.overlayVC.removeFromParentViewController() //Remove overlay
+        self.overlayVC.removeFromParent() //Remove overlay
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,7 +52,7 @@ class AVViewController: UIViewController   {
         let playerItem = AVPlayerItem(url:self.url)
         avPlayer.replaceCurrentItem(with: playerItem)
         /* Observer for playing video */
-        avPlayer.addPeriodicTimeObserver(forInterval: CMTimeMake(1, 60), queue: DispatchQueue.main) {
+        avPlayer.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 60), queue: DispatchQueue.main) {
             [unowned self] time in
             self.updateProgressBar()
         }
@@ -61,10 +61,10 @@ class AVViewController: UIViewController   {
     // MARK: OverlayVC initialization
     func addOverlayView() {
         overlayVC = self.storyboard?.instantiateViewController(withIdentifier: "AVPlayerOverlayVC") as! PlayerOverlayVC
-        self.addChildViewController(overlayVC)
+        self.addChild(overlayVC)
         self.view.addSubview(overlayVC.view)
         overlayVC.deleget = self
-        overlayVC.didMove(toParentViewController: self)
+        overlayVC.didMove(toParent: self)
     }
     
     // MARK: Update Vedio Sldier on OverlayVC View
@@ -89,9 +89,9 @@ extension AVViewController : PlayerOverlayVCDelegate{
         
         let timeStart = totalDuration
         let timeScale = avPlayer.currentItem!.asset.duration.timescale
-        let seektime = CMTimeMakeWithSeconds(timeStart!, timeScale)
+        let seektime = CMTimeMakeWithSeconds(timeStart!, preferredTimescale: timeScale)
         if CMTIME_IS_VALID(seektime) {
-            avPlayer.seek(to: seektime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+            avPlayer.seek(to: seektime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
         }
     }
     

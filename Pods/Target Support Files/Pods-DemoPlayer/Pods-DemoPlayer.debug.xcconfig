@@ -1,6 +1,11 @@
-ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
+CLANG_CXX_LANGUAGE_STANDARD = c++11
+CLANG_CXX_LIBRARY = libc++
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/MobileVLCKit"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-PODS_BUILD_DIR = $BUILD_DIR
-PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+OTHER_LDFLAGS = $(inherited) -ObjC -l"bz2" -l"c++" -l"iconv" -l"xml2" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreText" -framework "MobileVLCKit" -framework "OpenGLES" -framework "QuartzCore" -framework "Security" -framework "VideoToolbox"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

@@ -33,7 +33,7 @@ class VLCViewController: UIViewController,VLCMediaPlayerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         vlcMediaPlayer.stop() // Stop the playback
-        overlayVC.removeFromParentViewController() // Remove overlay
+        overlayVC.removeFromParent() // Remove overlay
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,10 +65,10 @@ class VLCViewController: UIViewController,VLCMediaPlayerDelegate {
     // MARK: - PlayerOverlayVC initialization
     func addOverlayView() {
         overlayVC = self.storyboard?.instantiateViewController(withIdentifier: "AVPlayerOverlayVC") as! PlayerOverlayVC
-        self.addChildViewController(overlayVC)
+        self.addChild(overlayVC)
         self.view.addSubview(overlayVC.view)
         overlayVC.deleget = self
-        overlayVC.didMove(toParentViewController: self)
+        overlayVC.didMove(toParent: self)
     }
     
     // MARK: - MovieeView initializatio

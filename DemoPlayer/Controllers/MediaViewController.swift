@@ -50,16 +50,16 @@ class MediaViewController: UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
         mpPlayer.stop() // Stop the playback
-        self.overlayVC.removeFromParentViewController() // remove overlay
+        self.overlayVC.removeFromParent() // remove overlay
     }
     
     // MARK: OverlayVC initialization
     func addOverlayView() {
         overlayVC = self.storyboard?.instantiateViewController(withIdentifier: "AVPlayerOverlayVC") as! PlayerOverlayVC
-        self.addChildViewController(overlayVC)
+        self.addChild(overlayVC)
         self.view.addSubview(overlayVC.view)
         overlayVC.deleget = self
-        overlayVC.didMove(toParentViewController: self)
+        overlayVC.didMove(toParent: self)
     }
     
     // MARK: MPMoviePlayerController initialization
@@ -82,7 +82,7 @@ class MediaViewController: UIViewController{
     }
     
     
-    func updateTimer(_ timer: Timer) {
+    @objc func updateTimer(_ timer: Timer) {
         /* The Total duration of the video player */
         let  totalDuration = Float(mpPlayer.duration)
         /* The current state of the video player */
